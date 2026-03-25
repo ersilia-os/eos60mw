@@ -1,33 +1,37 @@
-Identifier: eos0aaa
-Slug: template-model
+Identifier: eos60mw
+Slug: cidalsdb
 Status: In progress
-Title: This is a template model
-Description: |
-  This is a description of the template model.
-  You can use multiple lines in this description.
+Title: CidalsDB anti-Leishmania and anti-SARS-CoV/SARS-CoV-2 activity model
+Description: 'Multi-endpoint activity prediction model for Leishmania and coronaviruses.
+  It includes 6 endpoints: RF, MLP, and ChemBERTa for anti-Leishmania prediction,
+  and GCN, GB, and ChemBERTa for anti-coronavirus prediction. The endpoints operate
+  on molecular feature representations, including fixed-length molecular vector encodings,
+  graph-based representations, and transformer-based sequence representations. Each
+  endpoint returns Active/Inactive together with a confidence score.'
 Deployment:
   - Local
   - Online
 Source: Local, Online
 Source Type: Internal, Replicated, External
 Task: Annotation, Representation, Sampling
-Subtask: Property calculation or prediction, Activity prediction, Featurization, Projection, Similarity search, Generation
-Input: 
+Subtask: Property calculation or prediction, Activity prediction, Featurization,
+  Projection, Similarity search, Generation
+Input:
   - Compound
 Input Dimension: 1
-Output: 
+Output:
   - Value
   - Score
   - Compound
   - Text
 Output Dimension: 1
 Output Consistency: Fixed, Variable
-Interpretation: |
-  The output of this template model should be interpreted like this.
+Interpretation: The output of this template model should be interpreted like 
+  this.
 Tag:
-  - Tag 1
-  - Tag 2
-  - Tag 3
+  - Antimicrobial activity
+  - Antiviral activity
+  - Sars-CoV-2
 Biomedical Area:
   - Biomedical Area 1
   - Biomedical Area 2
@@ -36,6 +40,7 @@ Target Organism:
   - Target Organism 2
 Publication Type: Peer reviewed, Preprint, Other
 Publication Year: 2025
-Publication: https://example.com
-Source Code: https://example.com
-License: GPL-3.0-or-later, MIT, Apache-2.0...
+Publication: https://link.springer.com/article/10.1186/s13321-024-00929-7
+Source Code: https://github.com/Harigua/CidalsDB/tree/main
+License: GPL-3.0-only
+Contributor: arnaucoma24
