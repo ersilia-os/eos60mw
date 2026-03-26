@@ -2,6 +2,7 @@
 
 Multi-endpoint activity prediction model for Leishmania and coronaviruses. RF, MLP, and ChemBERTa models are included for anti-Leishmania prediction. GCN, GB, and ChemBERTa models are included for anti-coronavirus prediction. The endpoints operate on molecular feature representations, including fixed-length molecular vector encodings, graph-based representations, and transformer-based sequence representations. Each endpoint returns an active probability.
 
+This model was incorporated on 2026-03-25.
 
 
 ## Information
@@ -39,8 +40,11 @@ Below are the **Output Columns** of the model:
 ### Source and Deployment
 - **Source:** `Local`
 - **Source Type:** `External`
+- **S3 Storage**: [https://ersilia-models-zipped.s3.eu-central-1.amazonaws.com/eos60mw.zip](https://ersilia-models-zipped.s3.eu-central-1.amazonaws.com/eos60mw.zip)
 
 ### Resource Consumption
+- **Model Size (Mb):** `1322`
+- **Environment Size (Mb):** `5798`
 
 
 ### References
