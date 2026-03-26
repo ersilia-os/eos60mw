@@ -3,11 +3,11 @@ Slug: cidalsdb
 Status: In progress
 Title: CidalsDB anti-Leishmania and anti-SARS-CoV/SARS-CoV-2 activity model
 Description: Multi-endpoint activity prediction model for Leishmania and coronaviruses.
-  It includes 6 endpoints: RF, MLP, and ChemBERTa for anti-Leishmania prediction,
-  and GCN, GB, and ChemBERTa for anti-coronavirus prediction. The endpoints operate
+  RF, MLP, and ChemBERTa models are included for anti-Leishmania prediction. GCN, GB, and 
+  ChemBERTa models are included for anti-coronavirus prediction. The endpoints operate
   on molecular feature representations, including fixed-length molecular vector encodings,
   graph-based representations, and transformer-based sequence representations. Each
-  endpoint returns Active/Inactive together with a confidence score.
+  endpoint returns an active probability.
 Deployment:
   - Local
 Source: Local
