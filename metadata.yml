@@ -2,44 +2,37 @@ Identifier: eos60mw
 Slug: cidalsdb
 Status: In progress
 Title: CidalsDB anti-Leishmania and anti-SARS-CoV/SARS-CoV-2 activity model
-Description: 'Multi-endpoint activity prediction model for Leishmania and coronaviruses.
-  It includes 6 endpoints: RF, MLP, and ChemBERTa for anti-Leishmania prediction,
-  and GCN, GB, and ChemBERTa for anti-coronavirus prediction. The endpoints operate
+Description: Multi-endpoint activity prediction model for Leishmania and coronaviruses.
+  RF, MLP, and ChemBERTa models are included for anti-Leishmania prediction. GCN, GB, and 
+  ChemBERTa models are included for anti-coronavirus prediction. The endpoints operate
   on molecular feature representations, including fixed-length molecular vector encodings,
   graph-based representations, and transformer-based sequence representations. Each
-  endpoint returns Active/Inactive together with a confidence score.'
+  endpoint returns an active probability.
 Deployment:
   - Local
-  - Online
-Source: Local, Online
-Source Type: Internal, Replicated, External
-Task: Annotation, Representation, Sampling
-Subtask: Property calculation or prediction, Activity prediction, Featurization,
-  Projection, Similarity search, Generation
+Source: Local
+Source Type: External
+Task: Annotation
+Subtask: Activity prediction
 Input:
   - Compound
 Input Dimension: 1
 Output:
-  - Value
   - Score
-  - Compound
-  - Text
-Output Dimension: 1
-Output Consistency: Fixed, Variable
-Interpretation: The output of this template model should be interpreted like 
-  this.
+Output Dimension: 6
+Output Consistency: Fixed
+Interpretation: Higher predicted probability indicates higher likelihood of anti-pathogen activity.
 Tag:
   - Antimicrobial activity
   - Antiviral activity
   - Sars-CoV-2
 Biomedical Area:
-  - Biomedical Area 1
-  - Biomedical Area 2
+  - COVID-19
 Target Organism:
-  - Target Organism 1
-  - Target Organism 2
-Publication Type: Peer reviewed, Preprint, Other
-Publication Year: 2025
+  - Leishmania major
+  - SARS-CoV-2
+Publication Type: Peer reviewed
+Publication Year: 2024
 Publication: https://link.springer.com/article/10.1186/s13321-024-00929-7
 Source Code: https://github.com/Harigua/CidalsDB/tree/main
 License: GPL-3.0-only

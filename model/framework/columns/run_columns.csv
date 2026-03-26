@@ -1,1 +1,7 @@
 name,type,direction,description
+leishmania_rf,float,high,Random Forest probability of anti-Leishmania activity
+leishmania_mlp,float,high,MLP probability of anti-Leishmania activity
+leishmania_chemberta,float,high,ChemBERTa probability of anti-Leishmania activity
+coronavirus_gcn,float,high,GCN probability of anti-coronavirus activity
+coronavirus_gb,float,high,Gradient Boosting probability of anti-coronavirus activity
+coronavirus_chemberta,float,high,ChemBERTa probability of anti-coronavirus activity
