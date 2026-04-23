@@ -1,5 +1,7 @@
 import sys
 import types
+import warnings
+warnings.filterwarnings("ignore", category=UserWarning, module="pkg_resources")
 
 # dgl 2.1.0's graphbolt module uses torchdata subpackages removed in torchdata >= 0.8.0.
 # Pre-register dgl.graphbolt as an empty stub so dgl skips loading it entirely.
@@ -8,6 +10,8 @@ if "dgl.graphbolt" not in sys.modules:
     sys.modules["dgl.graphbolt"] = types.ModuleType("dgl.graphbolt")
 
 import os
+os.environ.setdefault("TRANSFORMERS_OFFLINE", "1")
+
 import pickle
 import numpy as np
 import dill
@@ -25,6 +29,7 @@ output_file = sys.argv[2]
 
 root = os.path.dirname(os.path.abspath(__file__))
 checkpoints = os.path.abspath(os.path.join(root, "..", "..", "checkpoints"))
+_TOKENIZER_PATH = os.path.join(checkpoints, "smiles-tokenizer")
 
 # --- Read SMILES ---
 _, smiles_list = read_smiles(input_file)
@@ -70,9 +75,7 @@ def gcn_scores(smiles_list, model_path):
 # --- ChemBERTa models ---
 
 def chemberta_scores(smiles_list, model_path):
-    tokenizer = RobertaTokenizerFast.from_pretrained(
-        "seyonec/SMILES_tokenized_PubChem_shard00_160k"
-    )
+    tokenizer = RobertaTokenizerFast.from_pretrained(_TOKENIZER_PATH)
     with open(model_path, "rb") as f:
         model = dill.load(f)
     model.eval()

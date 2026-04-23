@@ -1,0 +1,1 @@
+{"unk_token": "[UNK]", "sep_token": "[SEP]", "pad_token": "[PAD]", "cls_token": "[CLS]", "mask_token": "[MASK]", "max_len": 514, "special_tokens_map_file": "/content/drive/My Drive/Project De Novo/Molecule Transformer/SMILES_tokenized_PubChem_shard00_100k/checkpoint-60000/special_tokens_map.json", "full_tokenizer_file": null}
