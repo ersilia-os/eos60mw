@@ -1,7 +1,7 @@
 import sys
 import types
 import warnings
-warnings.filterwarnings("ignore", category=UserWarning, module="pkg_resources")
+warnings.filterwarnings("ignore", category=UserWarning)
 
 # dgl 2.1.0's graphbolt module uses torchdata subpackages removed in torchdata >= 0.8.0.
 # Pre-register dgl.graphbolt as an empty stub so dgl skips loading it entirely.
@@ -82,9 +82,12 @@ def chemberta_scores(smiles_list, model_path):
     scores = []
     with torch.no_grad():
         for smi in smiles_list:
-            inputs = tokenizer(smi, truncation=True, padding=True, return_tensors="pt")
-            outputs = model(**inputs)
-            prob_active = F.softmax(outputs.logits, dim=1).squeeze()[1].item()
+            try:
+                inputs = tokenizer(smi, truncation=True, padding=True, return_tensors="pt")
+                out = model(**inputs)
+                prob_active = F.softmax(out.logits, dim=1).squeeze()[1].item()
+            except Exception:
+                prob_active = np.nan
             scores.append(prob_active)
     return scores
 
@@ -97,12 +100,32 @@ outputs = np.full((n, 6), np.nan, dtype=np.float32)
 if valid_smiles:
     fps = rdkit_fps(valid_smiles)
 
-    rf_s   = sklearn_scores(os.path.join(checkpoints, "Leishmania_RF.pkl"), fps)
-    mlp_s  = sklearn_scores(os.path.join(checkpoints, "Leishmania_MLP.pkl"), fps)
-    gb_s   = sklearn_scores(os.path.join(checkpoints, "Coronavirus_GB.pkl"), fps)
-    gcn_s  = gcn_scores(valid_smiles, os.path.join(checkpoints, "Coronavirus_GCN.pkl"))
-    cl_s   = chemberta_scores(valid_smiles, os.path.join(checkpoints, "Leishmania_ChemBERTa.pkl"))
-    cc_s   = chemberta_scores(valid_smiles, os.path.join(checkpoints, "Coronavirus_ChemBERTa.pkl"))
+    nan_col = [np.nan] * len(valid_smiles)
+
+    try:
+        rf_s = sklearn_scores(os.path.join(checkpoints, "Leishmania_RF.pkl"), fps)
+    except Exception:
+        rf_s = nan_col[:]
+    try:
+        mlp_s = sklearn_scores(os.path.join(checkpoints, "Leishmania_MLP.pkl"), fps)
+    except Exception:
+        mlp_s = nan_col[:]
+    try:
+        gb_s = sklearn_scores(os.path.join(checkpoints, "Coronavirus_GB.pkl"), fps)
+    except Exception:
+        gb_s = nan_col[:]
+    try:
+        gcn_s = gcn_scores(valid_smiles, os.path.join(checkpoints, "Coronavirus_GCN.pkl"))
+    except Exception:
+        gcn_s = nan_col[:]
+    try:
+        cl_s = chemberta_scores(valid_smiles, os.path.join(checkpoints, "Leishmania_ChemBERTa.pkl"))
+    except Exception:
+        cl_s = nan_col[:]
+    try:
+        cc_s = chemberta_scores(valid_smiles, os.path.join(checkpoints, "Coronavirus_ChemBERTa.pkl"))
+    except Exception:
+        cc_s = nan_col[:]
 
     for j, i in enumerate(valid_indices):
         outputs[i] = [rf_s[j], mlp_s[j], cl_s[j], gcn_s[j], gb_s[j], cc_s[j]]
