@@ -2,8 +2,7 @@
 
 Multi-endpoint activity prediction model for Leishmania and coronaviruses. RF, MLP, and ChemBERTa models are included for anti-Leishmania prediction. GCN, GB, and ChemBERTa models are included for anti-coronavirus prediction. The endpoints operate on molecular feature representations, including fixed-length molecular vector encodings, graph-based representations, and transformer-based sequence representations. Each endpoint returns an active probability.
 
-This model was incorporated on 2026-03-25.
-
+This model was incorporated on 2026-03-25.Last packaged on 2026-04-24.
 
 ## Information
 ### Identifiers
@@ -40,12 +39,19 @@ Below are the **Output Columns** of the model:
 ### Source and Deployment
 - **Source:** `Local`
 - **Source Type:** `External`
+- **DockerHub**: [https://hub.docker.com/r/ersiliaos/eos60mw](https://hub.docker.com/r/ersiliaos/eos60mw)
+- **Docker Architecture:** `AMD64`
 - **S3 Storage**: [https://ersilia-models-zipped.s3.eu-central-1.amazonaws.com/eos60mw.zip](https://ersilia-models-zipped.s3.eu-central-1.amazonaws.com/eos60mw.zip)
 
 ### Resource Consumption
 - **Model Size (Mb):** `661`
 - **Environment Size (Mb):** `5798`
+- **Image Size (Mb):** `7758.22`
 
+**Computational Performance (seconds):**
+- 10 inputs: `33.2`
+- 100 inputs: `31.93`
+- 10000 inputs: `712.03`
 
 ### References
 - **Source Code**: [https://github.com/Harigua/CidalsDB/tree/main](https://github.com/Harigua/CidalsDB/tree/main)
