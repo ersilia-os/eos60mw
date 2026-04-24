@@ -1,6 +1,6 @@
 Identifier: eos60mw
 Slug: cidalsdb
-Status: In progress
+Status: Ready
 Title: CidalsDB anti-Leishmania and anti-SARS-CoV/SARS-CoV-2 activity model
 Description: Multi-endpoint activity prediction model for Leishmania and 
   coronaviruses. RF, MLP, and ChemBERTa models are included for anti-Leishmania 
@@ -40,6 +40,16 @@ Source Code: https://github.com/Harigua/CidalsDB/tree/main
 License: GPL-3.0-only
 Contributor: arnaucoma24
 Incorporation Date: '2026-03-25'
+Last Packaging Date: '2026-04-24'
+Release: v1.0.0
 S3: https://ersilia-models-zipped.s3.eu-central-1.amazonaws.com/eos60mw.zip
+DockerHub: https://hub.docker.com/r/ersiliaos/eos60mw
+Docker Architecture: AMD64
 Model Size: 661.0
 Environment Size: 5798.0
+Image Size: 7758.22
+Computational Performance 1: 33.2
+Computational Performance 2: 23.31
+Computational Performance 3: 31.93
+Computational Performance 4: 153.29
+Computational Performance 5: 712.03
