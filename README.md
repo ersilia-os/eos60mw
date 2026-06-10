@@ -55,7 +55,7 @@ Below are the **Output Columns** of the model:
 
 ### References
 - **Source Code**: [https://github.com/Harigua/CidalsDB/tree/main](https://github.com/Harigua/CidalsDB/tree/main)
-- **Publication**: [https://link.springer.com/article/10.1186/s13321-024-00929-7](https://link.springer.com/article/10.1186/s13321-024-00929-7)
+- **Publication**: [https://doi.org/10.1186/s13321-024-00929-7](https://doi.org/10.1186/s13321-024-00929-7)
 - **Publication Type:** `Peer reviewed`
 - **Publication Year:** `2024`
 - **Ersilia Contributor:** [arnaucoma24](https://github.com/arnaucoma24)
