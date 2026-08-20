@@ -1,6 +1,6 @@
 # CidalsDB anti-Leishmania and anti-SARS-CoV/SARS-CoV-2 activity model
 
-Scores compounds against Leishmania parasites and SARS-CoV-2 across six models drawn from cidalsDB, a curated resource of anti-pathogen bioactivity. Harigua-Souiai and colleagues assembled published screening data into a consistent database and fitted classifiers on top, with the explicit aim of supporting research on neglected diseases where screening capacity is scarce. Leishmaniasis and coronavirus data differ greatly in volume, so confidence is not uniform across the six outputs.
+Multi-endpoint activity prediction model for Leishmania and coronaviruses. RF, MLP, and ChemBERTa models are included for anti-Leishmania prediction. GCN, GB, and ChemBERTa models are included for anti-coronavirus prediction. The endpoints operate on molecular feature representations, including fixed-length molecular vector encodings, graph-based representations, and transformer-based sequence representations. Each endpoint returns an active probability.
 
 This model was incorporated on 2026-03-25.Last packaged on 2026-04-24.
 
@@ -23,7 +23,7 @@ This model was incorporated on 2026-03-25.Last packaged on 2026-04-24.
 ### Output
 - **Output Dimension:** `6`
 - **Output Consistency:** `Fixed`
-- **Interpretation:** Probabilities of activity against Leishmania species and SARS-CoV-2 across six curated models.
+- **Interpretation:** Higher predicted probability indicates higher likelihood of anti-pathogen activity.
 
 Below are the **Output Columns** of the model:
 | Name | Type | Direction | Description |
