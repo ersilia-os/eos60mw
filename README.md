@@ -2,7 +2,8 @@
 
 Scores compounds for activity against Leishmania parasites and coronaviruses with the six classifiers deployed in CidalsDB, an open database that Harigua-Souiai and colleagues at Institut Pasteur de Tunis built from curated literature reports and PubChem bioassays. Random forest, multilayer perceptron and ChemBERTa cover the anti-Leishmania endpoint, while gradient boosting, a graph convolutional network and ChemBERTa cover coronaviruses. The underlying datasets are heavily imbalanced towards inactives and differ greatly in volume, so confidence is not uniform across the six outputs.
 
-This model was incorporated on 2026-03-25.Last packaged on 2026-04-24.
+This model was incorporated on 2026-03-25.
+Last packaged on 2026-04-24.
 
 ## Information
 ### Identifiers
@@ -14,7 +15,7 @@ This model was incorporated on 2026-03-25.Last packaged on 2026-04-24.
 - **Subtask:** `Activity prediction`
 - **Biomedical Area:** `COVID-19`, `Leishmaniasis`
 - **Target Organism:** `Leishmania major`, `SARS-CoV-2`
-- **Tags:** `Antimicrobial activity`, `Antiviral activity`, `Sars-CoV-2`
+- **Tags:** `Antimicrobial activity`, `Antiviral activity`
 
 ### Input
 - **Input:** `Compound`
@@ -42,6 +43,7 @@ Below are the **Output Columns** of the model:
 - **DockerHub**: [https://hub.docker.com/r/ersiliaos/eos60mw](https://hub.docker.com/r/ersiliaos/eos60mw)
 - **Docker Architecture:** `AMD64`
 - **S3 Storage**: [https://ersilia-models-zipped.s3.eu-central-1.amazonaws.com/eos60mw.zip](https://ersilia-models-zipped.s3.eu-central-1.amazonaws.com/eos60mw.zip)
+- **Apptainer**: [https://models-sif.s3.eu-north-1.amazonaws.com/eos60mw_v1.sif](https://models-sif.s3.eu-north-1.amazonaws.com/eos60mw_v1.sif)
 
 ### Resource Consumption
 - **Model Size (Mb):** `661`
